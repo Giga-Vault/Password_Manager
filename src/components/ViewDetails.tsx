@@ -15,6 +15,7 @@ type Password = {
 };
 
 export default function ViewDetails() {
+  const { uid } = useParams();
   const Navigate = useNavigate();
   const { title } = useParams();
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,7 @@ export default function ViewDetails() {
     fetch(`/api/pwd/delete/${pwd_id}`,{
       method:'DELETE'
     }).then(response => { response.json()})
-    Navigate('/vault');
+    Navigate(`/pwd/get-all/${uid}`);
   })
 
   useEffect(() => {
@@ -100,11 +101,11 @@ export default function ViewDetails() {
           </div>
         )}
         <div className="mt-6 text-center flex flex-row justify-between">
-          <Link to="/Vault">
+          <Link to={`/pwd/get-all/${uid}`}>
             <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Vault</button>
           </Link>
           <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" onClick={DeletePwd}> Delete</button>
-          <Link to={`/pwd/update/${password?.id}`}><button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Edit</button></Link >
+          <Link to={`/pwd/update/${password?.id}/${uid}`}><button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Edit</button></Link >
         </div>
       </div>
       <ToastContainer

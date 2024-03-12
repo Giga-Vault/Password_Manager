@@ -13,15 +13,16 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/pwd" element={<PasswordGenerator />} />
-        <Route path="/vault" element={<Vault />} />
-        <Route path="/password/:id" element={<ViewDetails />} />
-        <Route path="/password" element={<PasswordList />} />
-        <Route path='/pwd/get-all'  Component={PasswordList} />
-        <Route path='/pwd/get-all/:title' Component={ViewDetails} />
-        <Route path='/add' Component={AddDetails} />
+        <Route path="/pwd/:uid" element={<PasswordGenerator />} />
+        <Route path="/pwd/get-all/:uid" element={<Vault />} />
+        {/* <Route path="/password/:id" element={<ViewDetails />} /> */}
+        {/* <Route path="/password" element={<PasswordList />} /> */}
+        {/* <Route path='/pwd/get-all/' Component={PasswordList} /> */}
+        <Route path='/pwd/get-details/:title/:uid' Component={ViewDetails} />
+        <Route path='/add/:uid' Component={AddDetails} />
         <Route path = '/adduser'Component={UserEntry}/>
-        <Route path='/pwd/update/:id' Component={Update}/>
+        <Route path='/pwd/update/:id/:uid' Component={Update}/>
+        <Route path='/signup' Component={UserEntry}/>
       </Routes>
     </BrowserRouter>
   );

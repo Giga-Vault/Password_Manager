@@ -12,7 +12,7 @@ type Password = {
 };
 
 export default function Update() {
-  const { id } = useParams();
+  const { uid,id } = useParams();
   const [password, setPassword] = useState<Password>();
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function Update() {
           </div>
           <div className="mt-6 flex justify-between">
             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Save</button>
-            <Link to="/Vault">
+            <Link to={`/pwd/get-all/${uid}`}>
               <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Vault</button>
             </Link>
           </div>

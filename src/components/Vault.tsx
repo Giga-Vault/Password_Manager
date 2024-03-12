@@ -1,9 +1,10 @@
   import React, { useState } from 'react';
   import PasswordList from './PasswordList';
-  import { Link } from 'react-router-dom';
+  import { Link, useParams} from 'react-router-dom';
 
   function Vault() {
     const [search, setSearch] = useState<string>('');
+    const { uid } = useParams();
 
     return (
       <div className="flex flex-col h-screen items-center justify-center bg-gray-200">
@@ -36,10 +37,10 @@
             <Link to="/">
               <button id="logout" className="font- max-w-24 rounded-md bg-blue-500 p-2 text-white hover:animate-pulse hover:bg-blue-700">Log Out</button>
             </Link>
-            <Link to="/add">
+            <Link to={`/add/${uid}`}>
               <button id="add" className="font-max-w-24 rounded-md bg-blue-500 p-2  w-28 text-white hover:animate-pulse hover:bg-blue-700">Add</button>
             </Link>
-            <Link to="/Pwd">
+            <Link to={`/Pwd/${uid}`}>
               <button id="logout" className="font-max-w-24 rounded-md bg-blue-500 p-2 text-white hover:animate-pulse hover:bg-blue-700">Generate</button>
             </Link>
           </div>
