@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HTML: <div class="loader"></div> */
-/* HTML: <div class="loader"></div> */
+
 .loader {
   width: 50px;
   aspect-ratio: 1;

@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Vault from './components/Vault';
 import AddDetails from './components/AddDetails';
 import UserEntry from './components/UserEntry';
+import Update from './components/Update';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/pwd/get-all/:title' Component={ViewDetails} />
         <Route path='/add' Component={AddDetails} />
         <Route path = '/adduser'Component={UserEntry}/>
+        <Route path='/pwd/update/:id' Component={Update}/>
       </Routes>
     </BrowserRouter>
   );

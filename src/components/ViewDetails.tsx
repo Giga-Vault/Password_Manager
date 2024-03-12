@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import copyIcon from '../assets/copy-icon.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,9 +15,18 @@ type Password = {
 };
 
 export default function ViewDetails() {
+  const Navigate = useNavigate();
   const { title } = useParams();
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState<Password | null>(null);
+  const [pwd_id, setPwdId] = useState<number>(0);
+
+  const DeletePwd=(()=>{
+    fetch(`/api/pwd/delete/${pwd_id}`,{
+      method:'DELETE'
+    }).then(response => { response.json()})
+    Navigate('/vault');
+  })
 
   useEffect(() => {
     fetch(`/api/pwd/get-all/${title}`)
@@ -25,6 +34,7 @@ export default function ViewDetails() {
       .then((data) => {
         setPassword(data.results[0] || null);
         console.log(data.results[0]);
+        setPwdId(data.results[0].id)
         setLoading(false)
       })
      
@@ -89,10 +99,12 @@ export default function ViewDetails() {
             </div>
           </div>
         )}
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center flex flex-row justify-between">
           <Link to="/Vault">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Back to Vault</button>
+            <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Vault</button>
           </Link>
+          <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" onClick={DeletePwd}> Delete</button>
+          <Link to={`/pwd/update/${password?.id}`}><button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Edit</button></Link >
         </div>
       </div>
       <ToastContainer

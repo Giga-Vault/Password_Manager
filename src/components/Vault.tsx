@@ -38,7 +38,7 @@
               <button id="logout" className="font- max-w-24 rounded-md bg-blue-500 p-2 text-white hover:animate-pulse hover:bg-blue-700">Log Out</button>
             </Link>
             <Link to="/add">
-              <button id="add" className="font-max-w-24 rounded-md bg-blue-500 p-2 text-white hover:animate-pulse hover:bg-blue-700">Add</button>
+              <button id="add" className="font-max-w-24 rounded-md bg-blue-500 p-2  w-28 text-white hover:animate-pulse hover:bg-blue-700">Add</button>
             </Link>
             <Link to="/Pwd">
               <button id="logout" className="font-max-w-24 rounded-md bg-blue-500 p-2 text-white hover:animate-pulse hover:bg-blue-700">Generate</button>
