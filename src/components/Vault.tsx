@@ -9,7 +9,7 @@
       <div className="flex flex-col h-screen items-center justify-center bg-gray-200">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 max-h-[100vh]">
           <h1 className="text-center text-3xl font-bold mb-4">SECURE VAULT</h1>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row gap-2 mb-4">
             <input
               type="search"
               id="search-box"
@@ -23,7 +23,6 @@
               id="search-button"
               className="bg-blue-500 py-2 px-4 text-white rounded-md hover:bg-blue-700"
               onClick={() => {
-                // Perform search functionality here
                 console.log('Search:', search);
               }}
             >

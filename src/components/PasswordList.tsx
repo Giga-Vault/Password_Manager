@@ -37,7 +37,7 @@ export default function PasswordList({ search }: Props) {
   });
 
   return (
-    <div className="container mx-auto py-10 ">
+    <div>
       {loading ? (
 
         

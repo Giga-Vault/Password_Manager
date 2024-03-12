@@ -26,7 +26,7 @@ function Login() {
         </div>
         </Link>
       </div>
-    </div>
+    </div>    
   );
 }
 
