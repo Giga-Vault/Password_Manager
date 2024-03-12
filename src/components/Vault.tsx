@@ -47,5 +47,4 @@
       </div>
     );
   }
-
   export default Vault;
