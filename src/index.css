@@ -23,7 +23,7 @@
 .loader::before {
   border-color: #4c42dceb #03000000;
   animation: inherit; 
-  animation-duration: .3s;
+  animation-duration: .2s;
   animation-direction: reverse;
 }
 .loader::after {
