@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Login() {
   return (
     <div className="bg-gray-200 h-screen flex justify-center items-center relative">
-      <h1 className="text-center text-4xl font-extrabold text-gray-900 absolute top-14">GIGA<span className="text-blue-600 leading-relaxed"> VAULT</span></h1>
+      <h1 className="text-center text-4xl font-extrabold text-gray-900 absolute top-14">🛡️GIGA<span className="text-blue-600 leading-relaxed"> VAULT🛡️</span></h1>
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form>

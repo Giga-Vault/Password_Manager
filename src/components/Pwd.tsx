@@ -31,7 +31,6 @@ function PasswordGenerator() {
         tempChoices.push(type);
       }
 
-      // Update state for individual checkboxes based on their type
       switch(type) {
         case 'lowercase':
           setLowerCase(!lowerCase);
@@ -100,7 +99,7 @@ function PasswordGenerator() {
   return (
     <div className='App bg-gray-200 w-full flex flex-col h-screen justify-center items-center'>
       <div className='container bg-white w-96 p-8 rounded-lg shadow-lg'>
-        <h2 className='title text-3xl font-bold mb-4 text-center text-gray-800'>Random Password Generator</h2>
+        <h2 className='title text-3xl font-bold mb-4 text-center text-gray-800'> Random Password Generator</h2>
         <div className="password-wrapper">
           <div className="password-area relative">
             <input type="text" value={password} disabled placeholder='Cannot generate password!' className='w-full px-3 py-4 border rounded-lg focus:outline-none focus:border-blue-500 text-lg font-semibold text-gray-800' />
