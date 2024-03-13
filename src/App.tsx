@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ViewDetails from './components/ViewDetails';
-import PasswordList from './components/PasswordList';
 import PasswordGenerator from './components/Pwd';
 import Login from './components/Login';
 import Vault from './components/Vault';

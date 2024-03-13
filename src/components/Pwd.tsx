@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import copyIcon from '../assets/copy-icon.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,7 +17,7 @@ function PasswordGenerator() {
   const [numbers, setNumbers] = useState<boolean>(true);
   const [symbols, setSymbols] = useState<boolean>(true);
   const [passwordLength, setPasswordLength] = useState<number>(6);
-  const [selectedChoices, setSelectedChoices] = useState<string[]>(['lowercase', 'uppercase', 'numbers', 'symbols']);
+  const [setSelectedChoices] = useState<string[]>(['lowercase', 'uppercase', 'numbers', 'symbols']);
 
   useEffect(() => {
     generatePassword();
