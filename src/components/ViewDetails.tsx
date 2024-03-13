@@ -21,13 +21,23 @@ export default function ViewDetails() {
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState<Password | null>(null);
   const [pwd_id, setPwdId] = useState<number>(0);
+  const [showWarning, setShowWarning] = useState(false); // Track warning visibility
 
-  const DeletePwd=(()=>{
-    fetch(`/api/pwd/delete/${pwd_id}`,{
-      method:'DELETE'
-    }).then(response => { response.json()})
-    Navigate(`/pwd/get-all/${uid}`);
-  })
+  const DeletePwd = () => {
+    if (showWarning) {
+      fetch(`/api/pwd/delete/${pwd_id}`, {
+        method: 'DELETE'
+      })
+      .then(response => response.json())
+      .then(() => {
+        Navigate(`/pwd/get-all/${uid}`);
+      })
+      .catch((error:any) => console.error('Error deleting password:', error));
+    } else {
+      // Show the warning message
+      setShowWarning(true);
+    }
+  };
 
   useEffect(() => {
     fetch(`/api/pwd/get-all/${title}`)
@@ -60,6 +70,7 @@ export default function ViewDetails() {
       console.error('Error copying text to clipboard:', error);
     }
   };
+  
 
   return (
     <div className="bg-gray-200 min-h-screen flex flex-col justify-center items-center">
@@ -108,6 +119,18 @@ export default function ViewDetails() {
           <Link to={`/pwd/update/${password?.id}/${uid}`}><button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Edit</button></Link >
         </div>
       </div>
+      {showWarning && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <p className="text-lg font-semibold text-gray-800 mb-4">Are you sure you want to delete this password?</p>
+            <div className="flex flex-row gap-2 justify-center">
+            <button className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600" onClick={DeletePwd}>Delete</button>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 mr-4" onClick={() => setShowWarning(false)}>Cancel</button>
+              
+            </div>
+          </div>
+        </div>
+      )}
       <ToastContainer
         position="top-right"
         autoClose={1000}
