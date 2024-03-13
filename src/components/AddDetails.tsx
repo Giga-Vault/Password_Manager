@@ -22,13 +22,13 @@ export default function PasswordEntry() {
         password: '',
         url: '',
         notes: '',
-        user_id: parseInt(uid) || 0,
+        user_id: parseInt(uid?? ''),
     });
 
     useEffect(() => {
         setPassword(prevState => ({
             ...prevState,
-            user_id: parseInt(uid) || 0, 
+            user_id: parseInt(uid?? ''), 
         }));
     }, [uid]);
 

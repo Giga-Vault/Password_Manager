@@ -10,9 +10,9 @@ export default function Login() {
 
     const onSubmitData = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Check if username and password are empty
+    
         if (!username.trim() || !password.trim()) {
-            toast.error('Fill both the fields.');
+            toast.error('Fill in both the fields.');
             return;
         }
         try {
@@ -37,7 +37,7 @@ export default function Login() {
             }
         } catch (error) {
             console.error("Error fetching data:", error);
-            toast.error("Wrong Credentials");
+            toast.error("Wrong Credentials!");
         }
     }
 

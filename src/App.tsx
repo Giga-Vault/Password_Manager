@@ -15,9 +15,6 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/pwd/:uid" element={<PasswordGenerator />} />
         <Route path="/pwd/get-all/:uid" element={<Vault />} />
-        {/* <Route path="/password/:id" element={<ViewDetails />} /> */}
-        {/* <Route path="/password" element={<PasswordList />} /> */}
-        {/* <Route path='/pwd/get-all/' Component={PasswordList} /> */}
         <Route path='/pwd/get-details/:title/:uid' Component={ViewDetails} />
         <Route path='/add/:uid' Component={AddDetails} />
         <Route path = '/adduser'Component={UserEntry}/>
