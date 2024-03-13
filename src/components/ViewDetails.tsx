@@ -67,7 +67,7 @@ export default function ViewDetails() {
         <h1 className="text-3xl font-bold mb-4">Your Password Details</h1>
         <div className="items-center justify-center w-full flex">
 
-      {loading && <div className='loader'></div>}
+      {loading && <div className='loader1'></div>}
 
         </div>
         {password && (

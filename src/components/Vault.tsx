@@ -22,7 +22,7 @@
             <button
               type="button"
               id="search-button"
-              className="bg-blue-500 py-2 px-4 text-white rounded-md hover:bg-blue-700"
+              className="bg-blue-500 py-2 px-4 text-white rounded-md hover:animate-pulse hover:bg-blue-700"
               onClick={() => {
                 console.log('Search:', search);
               }}

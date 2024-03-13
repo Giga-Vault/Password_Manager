@@ -2,8 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+.loader1 {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #3614e1;
+}
+  .loader1:before,
+  .loader1:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 0.5s spin linear infinite;
+  }
+  .loader1:after {
+    color: #FF3D00;
+    transform: rotateY(70deg);
+    animation-delay: .1s;
+  }
 
-.loader {
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+} 
+/* 
+.loader1 {
   width: 50px;
   aspect-ratio: 1;
   display: grid;
@@ -31,4 +103,56 @@
 }
 @keyframes l16 { 
   100%{transform: rotate(1turn)}
+} */
+
+.loader {
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: auto;
+  position: relative;
+  background: #FFF;
+  box-sizing: border-box;
 }
+
+.loader::after {
+  content: '';
+  width: calc(100% - 30px);
+  height: calc(100% - 15px);
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  background-image: 
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+    linear-gradient(#dddddda4 100px, transparent 0),
+    linear-gradient(#dddddda4 100px, transparent 0),
+    linear-gradient(#dddddda4 120px, transparent 0),
+    linear-gradient(#dddddda4  120px, transparent 0); /* New gradient */
+  background-repeat: no-repeat;
+  background-size: 
+    75px 175px, /* Gradient for the main loader */
+    100% 100px, /* First additional box */
+    100% 16px, /* Second additional box */
+    100% 30px, /* Third additional box */
+    100% 50px; /* Fourth additional box */
+  background-position: 
+    -185px 0, /* Position of the main loader gradient */
+    center 0, /* Position of the first additional box */
+    center 115px, /* Position of the second additional box */
+    center 142px, /* Position of the third additional box */
+    center 192px; /* Position of the fourth additional box */
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  to {
+    background-position: 
+      185px 0, /* Position of the main loader gradient */
+      center 0, /* Position of the first additional box */
+      center 115px, /* Position of the second additional box */
+      center 142px, /* Position of the third additional box */
+      center 232px; /* Position of the fourth additional box */
+  }
+}
+
