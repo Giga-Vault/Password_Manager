@@ -16,7 +16,6 @@ function App() {
         <Route path="/pwd/get-all/:uid" element={<Vault />} />
         <Route path='/pwd/get-details/:title/:uid' Component={ViewDetails} />
         <Route path='/add/:uid' Component={AddDetails} />
-        <Route path = '/adduser'Component={UserEntry}/>
         <Route path='/pwd/update/:id/:uid' Component={Update}/>
         <Route path='/signup' Component={UserEntry}/>
       </Routes>
