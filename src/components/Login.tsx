@@ -12,7 +12,7 @@ export default function Login() {
         e.preventDefault();
         // Check if username and password are empty
         if (!username.trim() || !password.trim()) {
-            toast.error('Please fill in both username and password fields.');
+            toast.error('Fill both the fields.');
             return;
         }
         try {
@@ -37,7 +37,7 @@ export default function Login() {
             }
         } catch (error) {
             console.error("Error fetching data:", error);
-            toast.error('Wrong Credentials');
+            toast.error("Wrong Credentials");
         }
     }
 

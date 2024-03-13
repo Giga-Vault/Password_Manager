@@ -63,7 +63,8 @@ export default function PasswordEntry() {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-white shadow-lg rounded px-8 pt-6 pb-4 mb-4">
+        <div className="bg-gray-200 flex flex-col justify-center items-center h-screen w-full">
+        <div className="w-96 mx-auto bg-white shadow-lg rounded px-8 pt-6 pb-4 mb-4">
             <h1 className="text-2xl font-bold mb-6">Add your login</h1>
             <form onSubmit={onSubmitPwd}>
                 <div className="mb-4">
@@ -140,21 +141,6 @@ export default function PasswordEntry() {
                         required
                     />
                 </div>
-                {/* <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user_id">
-                        User ID
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="user_id"
-                        type="number"
-                        name="user_id"
-                        placeholder="Enter the user ID"
-                        value={password.user_id}
-                        onChange={handleChange}
-                        required
-                    />
-                </div> */}
                 <div className="flex items-center justify-between">
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -180,6 +166,7 @@ export default function PasswordEntry() {
             theme="colored"
             style={{ top: '40px', right:'40px' }} 
              />
+        </div>
         </div>
     );
 }
