@@ -11,28 +11,29 @@ const symbolsList = "!@#$%^&*()?";
 
 function PasswordGenerator() {
   const { uid } = useParams();
-  const [password, setPassword] = useState<string>('');   
+  const [password, setPassword] = useState<string>('');
   const [lowerCase, setLowerCase] = useState<boolean>(true);
   const [upperCase, setUpperCase] = useState<boolean>(true);
   const [numbers, setNumbers] = useState<boolean>(true);
   const [symbols, setSymbols] = useState<boolean>(true);
   const [passwordLength, setPasswordLength] = useState<number>(6);
-  const [setSelectedChoices] = useState<string[]>(['lowercase', 'uppercase', 'numbers', 'symbols']);
+  const [selectedChoices, setSelectedChoices] = useState<string[]>(['lowercase', 'uppercase', 'numbers', 'symbols']);
 
   useEffect(() => {
     generatePassword();
-  }, [passwordLength]);
+  }, [passwordLength, lowerCase, upperCase, numbers, symbols]); 
 
   const handleCheckbox = (type: string) => {
     setSelectedChoices(prevChoices => {
       let tempChoices = [...prevChoices];
+      selectedChoices.includes(type) ? tempChoices = tempChoices.filter(choice => choice !== type) : tempChoices.push(type);
       if (tempChoices.includes(type)) {
         tempChoices = tempChoices.filter(choice => choice !== type);
       } else {
         tempChoices.push(type);
       }
 
-      switch(type) {
+      switch (type) {
         case 'lowercase':
           setLowerCase(!lowerCase);
           break;
@@ -51,7 +52,7 @@ function PasswordGenerator() {
 
       return tempChoices;
     });
-  }
+  };
 
   const generatePassword = () => {
     let characterList = '';
@@ -77,14 +78,14 @@ function PasswordGenerator() {
     }
 
     setPassword(tempPassword);
-  }
+  };
 
   const copyPassword = async () => {
     const copiedText = await navigator.clipboard.readText();
     if (password.length && copiedText !== password) {
       navigator.clipboard.writeText(password);
       toast.success('Password copied to clipboard!', {
-        position: "bottom-right", 
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -92,10 +93,10 @@ function PasswordGenerator() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        style: { bottom: '100px' } 
+        style: { bottom: '100px' }
       });
     }
-  }
+  };
 
   return (
     <div className='App bg-gray-200 w-full flex flex-col h-screen justify-center items-center'>
@@ -144,7 +145,7 @@ function PasswordGenerator() {
           </div>
         </div>
         <div className="buttons flex justify-center mt-8">
-        <Link to={`/pwd/get-all/${uid}`}>
+          <Link to={`/pwd/get-all/${uid}`}>
             <button type='button' onClick={copyPassword} className='py-3 px-6 bg-blue-500 text-white rounded-md mr-4 cursor-pointer hover:bg-blue-600'>Vault</button>
           </Link>
           <button type='button' onClick={generatePassword} className='py-3 px-6 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600'>Generate Password</button>
@@ -158,7 +159,7 @@ function PasswordGenerator() {
         pauseOnHover
         draggable
         theme="colored"
-        style={{ top: '130px', right:'20px' }} 
+        style={{ top: '130px', right: '20px' }}
       />
     </div>
   );
