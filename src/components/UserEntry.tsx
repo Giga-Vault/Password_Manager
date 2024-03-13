@@ -20,7 +20,7 @@ export default function UserEntry() {
     created_at: '',
   });
 
-  const onSubmitPwd = (e: React.FormEvent<HTMLFormElement>) => { // Changed event type
+  const onSubmitPwd = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault(); // Prevent form submission
     console.log(JSON.stringify(user));
     try {
@@ -60,7 +60,7 @@ export default function UserEntry() {
         className="flex flex-col max-w-4/5 gap-10 rounded-md bg-white p-12 shadow-lg"
       >
         <h1 className="text-black font-bold text-center text-3xl">Create An Account</h1>
-        <form onSubmit={onSubmitPwd}> {/* Changed onClick to onSubmit */}
+        <form onSubmit={onSubmitPwd}> 
           <div className="flex flex-row gap-6 justify-between">
             <p className="font-semibold mt-2">Username</p>
             <input
