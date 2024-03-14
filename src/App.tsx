@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Vault from './components/Vault';
 import AddDetails from './components/AddDetails';
 import UserEntry from './components/UserEntry';
-import Update from './components/Update';
+import Update from './components/Update'; 
 
 function App() {
   return (
